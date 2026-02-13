@@ -3,253 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MISSED CALL ENT. | THE HUB</title>
+    <title>MISSED CALL ENTERTAINMENT | MSD ENT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent-red: #d40000;
-            --gold: #c5a059;
-            --deep-bg: #050505;
-            --panel: rgba(15, 15, 15, 0.8);
+            --mced-red: #bb0000;
+            --mced-gold: #d4af37;
+            --dark-surface: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
-            background-color: var(--deep-bg);
-            color: #efefef;
+            background-color: #000;
+            color: #fff;
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow-x: hidden;
-            letter-spacing: -0.02em;
         }
 
-        /* Abstract Liquid Background */
-        .bg-glow {
+        /* Abstract Dark Glow */
+        .bg-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 10% 10%, rgba(212, 0, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 90% 90%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 50% -20%, #220000 0%, transparent 50%);
             z-index: -1;
         }
 
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
         header {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 1px solid var(--border);
         }
 
-        .main-logo {
+        .mced-title {
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2rem, 10vw, 6rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 0.9;
+            font-size: clamp(2rem, 8vw, 5rem);
+            line-height: 0.85;
+            letter-spacing: -2px;
             margin: 0;
-            background: linear-gradient(180deg, #fff 30%, #555 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
-        .subtitle {
+        .mced-title span { color: var(--mced-red); }
+
+        .nav-socials {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
             font-size: 0.7rem;
-            letter-spacing: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 20px;
-            color: var(--gold);
-            opacity: 0.8;
+            opacity: 0.6;
         }
+
+        .nav-socials a:hover { opacity: 1; color: var(--mced-red); }
 
         .container {
-            max-width: 1200px;
-            margin: -100px auto 0;
-            padding: 0 2rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 10rem;
         }
 
-        .grid {
+        .main-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 2rem;
+            gap: 30px;
         }
 
-        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; margin-top: 20px; } }
+        @media (max-width: 850px) { .main-grid { grid-template-columns: 1fr; } }
 
-        .glass-panel {
-            background: var(--panel);
-            backdrop-filter: blur(20px);
+        .section-box {
+            background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 4px; /* Sharper edges for a "sexy" look */
-            padding: 3rem;
-            position: relative;
+            padding: 40px;
+            backdrop-filter: blur(10px);
         }
 
         h2 {
             font-family: 'Syncopate', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+            color: var(--mced-red);
+            text-transform: uppercase;
         }
 
-        h2::after {
-            content: "";
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--accent-red), transparent);
+        /* Roster List */
+        .roster-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Stryve Roster Styling */
-        .roster-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .member-card {
+        .roster-item {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            transition: 0.3s;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        .member-card:hover {
-            color: var(--accent-red);
-            padding-left: 5px;
-        }
+        .roster-item a:hover { color: var(--mced-red); transform: translateX(10px); }
 
-        .age-tag {
+        .age-circle {
             font-family: 'Syncopate', sans-serif;
-            font-size: 0.7rem;
-            opacity: 0.5;
+            font-size: 0.6rem;
+            background: #222;
+            padding: 4px 10px;
+            border-radius: 50px;
+            color: #888;
         }
 
-        /* YoungFlamePX Spotlight */
-        .solo-spotlight {
-            background: linear-gradient(145deg, #0a0a0a 0%, #151515 100%);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 3rem;
+        /* YoungFlamePX Track */
+        .track-card {
             text-align: center;
+            border: 1px solid var(--mced-gold);
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #111, #000);
         }
 
-        .track-reveal {
-            margin-top: 2rem;
-            border: 1px solid var(--gold);
-            padding: 2rem;
-            position: relative;
-        }
-
-        .track-reveal h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.5rem;
-            margin: 0;
-            color: var(--gold);
-        }
-
-        .play-btn {
-            margin-top: 1.5rem;
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 10px 30px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .play-btn:hover {
-            background: white;
+        .spotify-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #1DB954;
             color: black;
-        }
-
-        /* Staff Section */
-        .staff-footer {
-            margin-top: 4rem;
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            opacity: 0.7;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 900;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
         }
 
-        .staff-name {
-            display: block;
-            font-weight: 900;
-            font-size: 1.1rem;
-            color: #fff;
-            margin-top: 5px;
+        .spotify-btn:hover { background: #1ed760; transform: scale(1.05); }
+
+        /* Staff Section */
+        .staff-wrap {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
+
+        .staff-box {
+            background: #111;
+            padding: 20px;
+            border-left: 2px solid var(--mced-red);
+        }
+
+        .staff-label { font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; text-transform: uppercase; }
+        .staff-name { display: block; font-weight: 900; font-size: 1.2rem; margin-top: 5px; }
 
         footer {
-            padding: 5rem;
             text-align: center;
-            font-size: 0.6rem;
-            letter-spacing: 4px;
+            padding: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
             opacity: 0.3;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="bg-overlay"></div>
 
     <header>
-        <p class="subtitle">EST. 2024 — THE COLLECTIVE</p>
-        <h1 class="main-logo">MISSED<br>CALL</h1>
-        <div style="margin-top: 40px; width: 1px; height: 100px; background: linear-gradient(to bottom, var(--gold), transparent);"></div>
+        <h1 class="mced-title">MISSED CALL<br><span>ENTERTAINMENT</span></h1>
+        <div class="nav-socials">
+            <a href="https://www.instagram.com/stryvepxp/" target="_blank">STRYVE</a>
+            <span>/</span>
+            <a href="https://www.instagram.com/yourfriendyoungflame/" target="_blank">YOUNGFLAMEPX</a>
+        </div>
     </header>
 
     <div class="container">
-        <div class="grid">
-            <div class="glass-panel">
-                <h2>STRYVE</h2>
-                <div class="roster-grid">
-                    <div class="member-card"><span>Chun-Li</span><span class="age-tag">19</span></div>
-                    <div class="member-card"><span>AJ</span><span class="age-tag">17</span></div>
-                    <div class="member-card"><span>Blake</span><span class="age-tag">16</span></div>
-                    <div class="member-card"><span>Liv</span><span class="age-tag">16</span></div>
-                    <div class="member-card"><span>Suzie</span><span class="age-tag">16</span></div>
-                    <div class="member-card"><span>Briana</span><span class="age-tag">15</span></div>
-                    <div class="member-card"><span>Bianca</span><span class="age-tag">15</span></div>
-                    <div class="member-card"><span>Avery</span><span class="age-tag">15</span></div>
+        <div class="main-grid">
+            
+            <div class="section-box">
+                <h2>STRYVE ROSTER</h2>
+                <div class="roster-list">
+                    <div class="roster-item">
+                        <a href="https://www.instagram.com/not_beatz_production/" target="_blank">Chun-Li</a>
+                        <span class="age-circle">19</span>
+                    </div>
+                    <div class="roster-item">
+                        <a href="https://www.instagram.com/yourfriendyoungflame/" target="_blank">AJ</a>
+                        <span class="age-circle">17</span>
+                    </div>
+                    <div class="roster-item">
+                        <a href="https://www.instagram.com/my_left_nut_jiggles_uwu/" target="_blank">Blake</a>
+                        <span class="age-circle">16</span>
+                    </div>
+                    <div class="roster-item">
+                        <span>Liv</span>
+                        <span class="age-circle">16</span>
+                    </div>
+                    <div class="roster-item">
+                        <a href="https://www.instagram.com/suzyp26/" target="_blank">Suzie</a>
+                        <span class="age-circle">16</span>
+                    </div>
+                    <div class="roster-item">
+                        <a href="https://www.instagram.com/luvv.bianca7/" target="_blank">Bianca</a>
+                        <span class="age-circle">15</span>
+                    </div>
+                    <div class="roster-item">
+                        <span>Avery</span>
+                        <span class="age-circle">15</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="glass-panel solo-spotlight">
-                <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 5px;">SPOTLIGHT</span>
-                <h2 style="justify-content: center; border: none; margin-top: 10px;">YoungFlamePX</h2>
-                <div class="track-reveal">
-                    <small style="opacity: 0.5;">LATEST SINGLE</small>
-                    <h3>LoveStruck</h3>
-                    <button class="play-btn">Listen</button>
-                </div>
+            <div class="section-box track-card">
+                <span style="letter-spacing: 5px; font-size: 0.6rem; opacity: 0.6;">FEATURED RELEASE</span>
+                <h2 style="color: var(--mced-gold); border: none; margin-top: 10px;">YoungFlamePX</h2>
+                <h3 style="font-family: 'Syncopate'; font-size: 1.8rem; margin: 10px 0;">LOVESTRUCK</h3>
+                <a href="https://open.spotify.com/track/0Mz9DKcQ90IwaE5BuM4vp4?si=7d2fecc961fa4927" class="spotify-btn" target="_blank">Listen on Spotify</a>
             </div>
+
         </div>
 
-        <div class="staff-footer">
-            <div>
-                OWNER <span class="staff-name">AJ (17)</span>
-            </div>
-            <div>
-                MANAGEMENT <span class="staff-name">COSMI (16)</span>
-            </div>
+        <div class="staff-wrap">
+            <a href="https://www.instagram.com/yourfriendyoungflame/" class="staff-box" target="_blank">
+                <span class="staff-label">Owner / Founder</span>
+                <span class="staff-name">AJ (17)</span>
+            </a>
+            <a href="https://www.instagram.com/_cosmiccalico_/" class="staff-box" target="_blank">
+                <span class="staff-label">All-Purpose Manager</span>
+                <span class="staff-name">Cosmi (16)</span>
+            </a>
         </div>
     </div>
 
     <footer>
-        MISSED CALL ENTERTAINMENT &copy; 2026 / ALL RIGHTS RESERVED
+        &copy; 2026 MSD ENT. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
