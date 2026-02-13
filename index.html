@@ -1,1 +1,243 @@
-Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missed Call Entertainment | Official Hub</title>
+    <style>
+        :root {
+            --primary: #ff3b30; /* Missed call red */
+            --accent: #007aff; /* Electric blue */
+            --bg: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #1a1a2e 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #2e1a1a 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-area h1 {
+            font-size: 3rem;
+            letter-spacing: -2px;
+            margin: 0;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        h2 {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .member-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .staff-section {
+            margin-top: 4rem;
+            background: linear-gradient(135deg, rgba(255,59,48,0.1) 0%, rgba(0,0,0,0) 100%);
+            border-radius: 30px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .staff-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .staff-member {
+            text-align: center;
+        }
+
+        .staff-member .role {
+            color: var(--primary);
+            font-weight: bold;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .marquee {
+            background: var(--primary);
+            color: black;
+            padding: 10px 0;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee">
+        <span>STRYVE DEBUT ALBUM DROPPING SOON • YOUNGFLAME "NO SIGNAL" OUT NOW • MISSED CALL ENTERTAINMENT • </span>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <h1>Missed Call</h1>
+            <div class="status-tag">● RECORDING IN PROGRESS</div>
+        </div>
+        <p>Independent Creative Label | Est. 2024</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="roster">
+            <h2>The Roster</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 style="color: var(--primary);">STRYVE</h3>
+                    <p><em>The powerhouse 8-member collective.</em></p>
+                    <ul class="member-list">
+                        <li class="member-tag">Chun-Li</li>
+                        <li class="member-tag">AJ</li>
+                        <li class="member-tag">Blake</li>
+                        <li class="member-tag">Liv</li>
+                        <li class="member-tag">Suzie</li>
+                        <li class="member-tag">Briana</li>
+                        <li class="member-tag">Bianca</li>
+                        <li class="member-tag">Avery</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--accent);">YoungFlame</h3>
+                    <p><em>Solo Hip-Hop / Alternative Artist</em></p>
+                    <div class="member-tag" style="display:inline-block">AJ</div>
+                    <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.8;">
+                        Exploring the raw intersection of digital soundscapes and personal storytelling.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="staff-section">
+            <h2>Management</h2>
+            <div class="staff-grid">
+                <div class="staff-member">
+                    <span class="role">OWNER</span>
+                    <h3>AJ</h3>
+                    <p>Age: 17</p>
+                </div>
+                <div class="staff-member">
+                    <span class="role">ALL-PURPOSE MANAGER</span>
+                    <h3>Cosmi</h3>
+                    <p>Age: 16</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MISSED CALL ENTERTAINMENT. ALL RIGHTS RESERVED.</p>
+        <p>Don't call us, we'll call you.</p>
+    </footer>
+
+</body>
+</html>
