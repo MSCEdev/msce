@@ -26,13 +26,12 @@
             overflow-x: hidden;
         }
 
-        /* Subtle Grain to make it feel "lo-fi" */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://www.transparenttextures.com/patterns/p6.png');
-            opacity: 0.15;
+            opacity: 0.12;
             pointer-events: none;
             z-index: 100;
         }
@@ -87,13 +86,12 @@
 
         h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 30px;
             font-style: italic;
             opacity: 0.9;
         }
 
-        /* Roster Styling */
         .roster-item {
             display: flex;
             justify-content: space-between;
@@ -112,7 +110,6 @@
             font-weight: bold;
         }
 
-        /* YoungFlamePX Spotlight */
         .spotlight {
             text-align: center;
             background: linear-gradient(145deg, #1f1b1a, #131110);
@@ -136,7 +133,6 @@
             color: #fff;
         }
 
-        /* Staff Section */
         .staff-wrap {
             margin-top: 40px;
             display: flex;
@@ -151,6 +147,7 @@
             border-radius: 30px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.03);
+            min-width: 200px;
         }
 
         .role {
@@ -171,12 +168,11 @@
             opacity: 0.4;
         }
 
-        /* Ambient Light */
         .lamp-glow {
             position: fixed;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(166, 124, 124, 0.08) 0%, transparent 70%);
-            top: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(166, 124, 124, 0.05) 0%, transparent 70%);
+            top: -150px;
             left: 50%;
             transform: translateX(-50%);
             z-index: -1;
@@ -189,14 +185,14 @@
 
     <header>
         <h1 class="mced-title">Missed Call Entertainment</h1>
-        <p class="mced-subtitle">MSD ENT — 2026 Collective</p>
+        <p class="mced-subtitle">MSD ENT — 2026 HUB</p>
     </header>
 
     <div class="container">
         <div class="grid">
             
             <div class="cozy-panel">
-                <h2>Stryve</h2>
+                <h2>StryVE</h2>
                 <div class="roster-list">
                     <div class="roster-item">
                         <a href="https://www.instagram.com/not_beatz_production/" target="_blank" class="name">Chun-Li</a>
@@ -222,15 +218,15 @@
                     <div class="roster-item"><span class="name">Avery</span><span class="age">15</span></div>
                 </div>
                 <p style="margin-top: 30px; font-size: 0.75rem; color: var(--text-dim);">
-                    Follow the vision: <a href="https://www.instagram.com/stryvepxp/" style="color: var(--muted-rose);">@stryvepxp</a>
+                    Collective: <a href="https://www.instagram.com/stryvepxp/" style="color: var(--muted-rose);">@stryvepxp</a>
                 </p>
             </div>
 
             <div class="cozy-panel spotlight">
-                <span class="role">Latest Signal</span>
+                <span class="role">Featured Single</span>
                 <h2 style="margin-top: 10px;">YoungFlamePX</h2>
                 <div style="margin: 40px 0;">
-                    <p style="font-family: 'DM Serif Display'; font-size: 2.4rem; font-style: italic; color: var(--warm-glow);">LoveStruck</p>
+                    <p style="font-family: 'DM Serif Display'; font-size: 2.8rem; font-style: italic; color: var(--warm-glow);">Lovestruck</p>
                 </div>
                 <a href="https://open.spotify.com/track/0Mz9DKcQ90IwaE5BuM4vp4?si=7d2fecc961fa4927" class="spotify-link" target="_blank">Listen on Spotify</a>
                 <p style="margin-top: 35px; font-size: 0.8rem; color: var(--text-dim);">
@@ -253,7 +249,7 @@
     </div>
 
     <footer>
-        &copy; 2026 MISSED CALL ENTERTAINMENT. STRIKING WHILE COLD.
+        © 2026 MISSED CALL ENTERTAINMENT. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
