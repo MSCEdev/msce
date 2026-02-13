@@ -3,214 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missed Call Entertainment | Official Hub</title>
+    <title>MISSED CALL ENT. | THE HUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff3b30; 
-            --accent: #ff8e3c; 
-            --bg: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --accent-red: #d40000;
+            --gold: #c5a059;
+            --deep-bg: #050505;
+            --panel: rgba(15, 15, 15, 0.8);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: white;
+            background-color: var(--deep-bg);
+            color: #efefef;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
+            letter-spacing: -0.02em;
         }
 
-        /* Ambient Glow Background */
-        body::before {
-            content: "";
+        /* Abstract Liquid Background */
+        .bg-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 10% 20%, #2a0505 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, #051a2a 0%, transparent 40%);
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(212, 0, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
             z-index: -1;
         }
 
-        .marquee {
-            background: var(--primary);
-            color: white;
-            padding: 8px 0;
-            font-weight: 800;
-            overflow: hidden;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .marquee span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-
         header {
-            padding: 4rem 2rem 2rem;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo-area h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            letter-spacing: -3px;
-            margin: 0;
+        .main-logo {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2rem, 10vw, 6rem);
+            font-weight: 700;
             text-transform: uppercase;
-            font-style: italic;
-            font-weight: 900;
-            color: #fff;
+            line-height: 0.9;
+            margin: 0;
+            background: linear-gradient(180deg, #fff 30%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.7rem;
+            letter-spacing: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color: var(--gold);
+            opacity: 0.8;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 1200px;
+            margin: -100px auto 0;
+            padding: 0 2rem 5rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 2rem;
         }
 
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; margin-top: 20px; } }
+
+        .glass-panel {
+            background: var(--panel);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 2rem;
+            border-radius: 4px; /* Sharper edges for a "sexy" look */
+            padding: 3rem;
             position: relative;
-            overflow: hidden;
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .member-row {
+        h2::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(to right, var(--accent-red), transparent);
+        }
+
+        /* Stryve Roster Styling */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .member-card {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            transition: 0.3s;
         }
 
-        .member-name { font-weight: 600; font-size: 1.1rem; }
-        .member-age { color: var(--primary); font-weight: 800; font-family: monospace; }
-
-        .featured-track {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 15px;
-            margin-top: 1rem;
-            border-left: 4px solid var(--accent);
+        .member-card:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
         }
 
-        .staff-section {
-            margin-top: 4rem;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+        .age-tag {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.7rem;
+            opacity: 0.5;
         }
 
-        .staff-card {
-            flex: 1;
-            min-width: 250px;
-            background: linear-gradient(145deg, #1a1a1a, #000);
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+        /* YoungFlamePX Spotlight */
+        .solo-spotlight {
+            background: linear-gradient(145deg, #0a0a0a 0%, #151515 100%);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 3rem;
             text-align: center;
         }
 
-        .role-badge {
+        .track-reveal {
+            margin-top: 2rem;
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .track-reveal h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--gold);
+        }
+
+        .play-btn {
+            margin-top: 1.5rem;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 30px;
+            text-transform: uppercase;
             font-size: 0.7rem;
             letter-spacing: 2px;
-            color: #888;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Staff Section */
+        .staff-footer {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            opacity: 0.7;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .staff-name {
+            display: block;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-top: 5px;
         }
 
         footer {
+            padding: 5rem;
             text-align: center;
-            padding: 5rem 2rem;
-            opacity: 0.4;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            opacity: 0.3;
         }
     </style>
 </head>
 <body>
 
-    <div class="marquee">
-        <span>YOUNGFLAMEPX - "LOVESTRUCK" OUT NOW • STRYVE DEBUT PREPARATIONS UNDERWAY • MISSED CALL ENTERTAINMENT 2026 • </span>
-    </div>
+    <div class="bg-glow"></div>
 
     <header>
-        <div class="logo-area">
-            <h1>Missed Call</h1>
-            <p style="letter-spacing: 5px; opacity: 0.7;">ENTERTAINMENT</p>
-        </div>
+        <p class="subtitle">EST. 2024 — THE COLLECTIVE</p>
+        <h1 class="main-logo">MISSED<br>CALL</h1>
+        <div style="margin-top: 40px; width: 1px; height: 100px; background: linear-gradient(to bottom, var(--gold), transparent);"></div>
     </header>
 
     <div class="container">
-        
         <div class="grid">
-            <div class="card">
+            <div class="glass-panel">
                 <h2>STRYVE</h2>
-                <div class="member-row"><span class="member-name">Chun-Li</span> <span class="member-age">19</span></div>
-                <div class="member-row"><span class="member-name">AJ</span> <span class="member-age">17</span></div>
-                <div class="member-row"><span class="member-name">Blake</span> <span class="member-age">16</span></div>
-                <div class="member-row"><span class="member-name">Liv</span> <span class="member-age">16</span></div>
-                <div class="member-row"><span class="member-name">Suzie</span> <span class="member-age">16</span></div>
-                <div class="member-row"><span class="member-name">Briana</span> <span class="member-age">15</span></div>
-                <div class="member-row"><span class="member-name">Bianca</span> <span class="member-age">15</span></div>
-                <div class="member-row"><span class="member-name">Avery</span> <span class="member-age">15</span></div>
-            </div>
-
-            <div class="card">
-                <h2 style="color: var(--accent);">YoungFlamePX</h2>
-                <p>Soloist / Visualizer</p>
-                <div class="featured-track">
-                    <small style="color: var(--accent); font-weight: bold;">LATEST RELEASE</small>
-                    <div style="font-size: 1.4rem; font-weight: 900; margin: 5px 0;">LoveStruck</div>
-                    <button style="background: white; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 10px;">Play Now</button>
+                <div class="roster-grid">
+                    <div class="member-card"><span>Chun-Li</span><span class="age-tag">19</span></div>
+                    <div class="member-card"><span>AJ</span><span class="age-tag">17</span></div>
+                    <div class="member-card"><span>Blake</span><span class="age-tag">16</span></div>
+                    <div class="member-card"><span>Liv</span><span class="age-tag">16</span></div>
+                    <div class="member-card"><span>Suzie</span><span class="age-tag">16</span></div>
+                    <div class="member-card"><span>Briana</span><span class="age-tag">15</span></div>
+                    <div class="member-card"><span>Bianca</span><span class="age-tag">15</span></div>
+                    <div class="member-card"><span>Avery</span><span class="age-tag">15</span></div>
                 </div>
-                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
-                    The creative alias for AJ's solo endeavors, blending high-energy production with vulnerable lyricism.
-                </p>
+            </div>
+
+            <div class="glass-panel solo-spotlight">
+                <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 5px;">SPOTLIGHT</span>
+                <h2 style="justify-content: center; border: none; margin-top: 10px;">YoungFlamePX</h2>
+                <div class="track-reveal">
+                    <small style="opacity: 0.5;">LATEST SINGLE</small>
+                    <h3>LoveStruck</h3>
+                    <button class="play-btn">Listen</button>
+                </div>
             </div>
         </div>
 
-        <div class="staff-section">
-            <div class="staff-card">
-                <div class="role-badge">Founder & Owner</div>
-                <h3 style="margin: 10px 0;">AJ (17)</h3>
+        <div class="staff-footer">
+            <div>
+                OWNER <span class="staff-name">AJ (17)</span>
             </div>
-            <div class="staff-card">
-                <div class="role-badge">All-Purpose Manager</div>
-                <h3 style="margin: 10px 0;">Cosmi (16)</h3>
+            <div>
+                MANAGEMENT <span class="staff-name">COSMI (16)</span>
             </div>
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 MISSED CALL ENT. <br> CREATED BY THE YOUTH, FOR THE WORLD.</p>
+        MISSED CALL ENTERTAINMENT &copy; 2026 / ALL RIGHTS RESERVED
     </footer>
 
 </body>
