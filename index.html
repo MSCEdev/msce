@@ -3,199 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missed Call Entertainment | MSD ENT Hub</title>
+    <title>Missed Call Entertainment | MSD ENT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --warm-cream: #fdfaf1;
-            --soft-brown: #4a3f35;
-            --dusty-rose: #d4a3a3;
-            --latte: #e8dcc4;
-            --shadow: rgba(74, 63, 53, 0.08);
+            --deep-coffee: #0f0d0c;
+            --soft-espresso: #1a1716;
+            --muted-rose: #a67c7c;
+            --warm-glow: #e8dcc4;
+            --text-dim: #b5ada8;
         }
 
         body {
-            background-color: var(--warm-cream);
-            color: var(--soft-brown);
+            background-color: var(--deep-coffee);
+            color: var(--warm-glow);
             font-family: 'Quicksand', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Soft Grain Texture */
+        /* Subtle Grain to make it feel "lo-fi" */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://www.transparenttextures.com/patterns/p6.png');
-            opacity: 0.3;
+            opacity: 0.15;
             pointer-events: none;
             z-index: 100;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        a:hover { color: var(--dusty-rose); }
+        a { text-decoration: none; color: inherit; transition: 0.4s; }
+        a:hover { color: var(--muted-rose); text-shadow: 0 0 8px var(--muted-rose); }
 
         header {
-            padding: 80px 20px;
+            padding: 100px 20px 60px;
             text-align: center;
         }
 
         .mced-title {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-size: clamp(2rem, 8vw, 4rem);
             margin: 0;
-            color: var(--soft-brown);
             font-style: italic;
+            letter-spacing: -1px;
+            color: var(--warm-glow);
         }
 
         .mced-subtitle {
             text-transform: uppercase;
-            letter-spacing: 6px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            opacity: 0.7;
+            letter-spacing: 5px;
+            font-size: 0.7rem;
+            margin-top: 15px;
+            color: var(--muted-rose);
+            font-weight: 700;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px 100px;
+            padding: 0 20px 80px;
         }
 
-        /* Layout */
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
         }
 
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
 
-        .cozy-card {
-            background: #fff;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 40px var(--shadow);
-            border: 1px solid rgba(0,0,0,0.02);
+        .cozy-panel {
+            background: var(--soft-espresso);
+            border-radius: 40px;
+            padding: 45px;
+            border: 1px solid rgba(232, 220, 196, 0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--latte);
-            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.9;
         }
 
         /* Roster Styling */
-        .roster-list {
-            list-style: none;
-            padding: 0;
-        }
-
         .roster-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px dashed var(--latte);
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(232, 220, 196, 0.05);
         }
 
-        .roster-item:last-child { border-bottom: none; }
-
-        .name { font-weight: 700; font-size: 1.1rem; }
+        .name { font-weight: 700; font-size: 1.05rem; }
         .age { 
-            font-size: 0.8rem; 
-            background: var(--latte); 
-            padding: 2px 10px; 
-            border-radius: 15px;
+            font-size: 0.7rem; 
+            border: 1px solid var(--muted-rose);
+            color: var(--muted-rose);
+            padding: 2px 12px; 
+            border-radius: 20px;
             font-weight: bold;
         }
 
         /* YoungFlamePX Spotlight */
         .spotlight {
             text-align: center;
-            background: var(--latte);
-            color: var(--soft-brown);
+            background: linear-gradient(145deg, #1f1b1a, #131110);
         }
 
         .spotify-link {
-            display: block;
-            margin-top: 20px;
-            background: var(--soft-brown);
-            color: var(--warm-cream);
-            padding: 15px;
-            border-radius: 50px;
+            display: inline-block;
+            margin-top: 25px;
+            background: var(--warm-glow);
+            color: var(--deep-coffee);
+            padding: 14px 35px;
+            border-radius: 40px;
             font-weight: 700;
-            box-shadow: 0 10px 20px rgba(74, 63, 53, 0.2);
+            font-size: 0.85rem;
+            transition: 0.3s;
         }
 
         .spotify-link:hover {
-            transform: translateY(-3px);
-            background: var(--dusty-rose);
+            transform: scale(1.05);
+            background: var(--muted-rose);
+            color: #fff;
         }
 
-        /* Staff Info */
-        .staff-section {
-            margin-top: 50px;
+        /* Staff Section */
+        .staff-wrap {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .staff-card {
+            background: rgba(255,255,255,0.02);
+            padding: 20px 40px;
+            border-radius: 30px;
             text-align: center;
-        }
-
-        .staff-pill {
-            display: inline-block;
-            background: #fff;
-            padding: 15px 30px;
-            border-radius: 50px;
-            margin: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid rgba(255,255,255,0.03);
         }
 
         .role {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--dusty-rose);
-            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--muted-rose);
+            margin-bottom: 5px;
         }
 
         footer {
             text-align: center;
-            padding: 50px;
-            font-size: 0.8rem;
-            opacity: 0.5;
+            padding: 60px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            opacity: 0.4;
         }
 
-        /* Floating Decoration */
-        .blob {
+        /* Ambient Light */
+        .lamp-glow {
             position: fixed;
-            width: 300px; height: 300px;
-            background: var(--dusty-rose);
-            filter: blur(80px);
-            opacity: 0.1;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(166, 124, 124, 0.08) 0%, transparent 70%);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: -1;
-            border-radius: 50%;
         }
     </style>
 </head>
 <body>
 
-    <div class="blob" style="top: -100px; right: -100px;"></div>
-    <div class="blob" style="bottom: -100px; left: -100px;"></div>
+    <div class="lamp-glow"></div>
 
     <header>
         <h1 class="mced-title">Missed Call Entertainment</h1>
-        <p class="mced-subtitle">Comfort in the Chaos</p>
+        <p class="mced-subtitle">MSD ENT — 2026 Collective</p>
     </header>
 
     <div class="container">
         <div class="grid">
             
-            <div class="cozy-card">
+            <div class="cozy-panel">
                 <h2>Stryve</h2>
                 <div class="roster-list">
                     <div class="roster-item">
@@ -221,37 +221,39 @@
                     </div>
                     <div class="roster-item"><span class="name">Avery</span><span class="age">15</span></div>
                 </div>
-                <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">Check out our journey on <a href="https://www.instagram.com/stryvepxp/" style="text-decoration: underline;">Instagram</a></p>
+                <p style="margin-top: 30px; font-size: 0.75rem; color: var(--text-dim);">
+                    Follow the vision: <a href="https://www.instagram.com/stryvepxp/" style="color: var(--muted-rose);">@stryvepxp</a>
+                </p>
             </div>
 
-            <div class="cozy-card spotlight">
-                <span class="role">Now Playing</span>
-                <h2 style="border:none; margin-top: 5px;">YoungFlamePX</h2>
-                <div style="margin: 20px 0;">
-                    <p style="font-family: 'DM Serif Display'; font-size: 2rem;">LoveStruck</p>
+            <div class="cozy-panel spotlight">
+                <span class="role">Latest Signal</span>
+                <h2 style="margin-top: 10px;">YoungFlamePX</h2>
+                <div style="margin: 40px 0;">
+                    <p style="font-family: 'DM Serif Display'; font-size: 2.4rem; font-style: italic; color: var(--warm-glow);">LoveStruck</p>
                 </div>
                 <a href="https://open.spotify.com/track/0Mz9DKcQ90IwaE5BuM4vp4?si=7d2fecc961fa4927" class="spotify-link" target="_blank">Listen on Spotify</a>
-                <p style="margin-top: 25px; font-size: 0.8rem;">
+                <p style="margin-top: 35px; font-size: 0.8rem; color: var(--text-dim);">
                     <a href="https://www.instagram.com/yourfriendyoungflame/">@yourfriendyoungflame</a>
                 </p>
             </div>
 
         </div>
 
-        <div class="staff-section">
-            <a href="https://www.instagram.com/yourfriendyoungflame/" class="staff-pill" target="_blank">
+        <div class="staff-wrap">
+            <a href="https://www.instagram.com/yourfriendyoungflame/" class="staff-card" target="_blank">
                 <span class="role">Owner</span>
                 <span style="font-weight: 700;">AJ (17)</span>
             </a>
-            <a href="https://www.instagram.com/_cosmiccalico_/" class="staff-pill" target="_blank">
-                <span class="role">Manager</span>
+            <a href="https://www.instagram.com/_cosmiccalico_/" class="staff-card" target="_blank">
+                <span class="role">Management</span>
                 <span style="font-weight: 700;">Cosmi (16)</span>
             </a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 MSD ENT. Made with love.
+        &copy; 2026 MISSED CALL ENTERTAINMENT. STRIKING WHILE COLD.
     </footer>
 
 </body>
